@@ -2,7 +2,6 @@ package com.github.alinz.reactnativewebviewbridge;
 
 import android.webkit.WebView;
 import android.webkit.WebChromeClient;
-import android.webkit.WebViewClient;
 import android.webkit.PermissionRequest;
 
 import com.facebook.react.bridge.ReadableArray;
@@ -41,7 +40,6 @@ public class WebViewBridgeManager extends ReactWebViewManager {
         WebView root = super.createViewInstance(reactContext);
         root.getSettings().setJavaScriptEnabled(true);
         root.addJavascriptInterface(new JavascriptBridge(root), "WebViewBridge");
-        root.setWebViewClient(new WebViewClient());
         root.setWebChromeClient(new WebChromeClient() {
           @Override
           public void onPermissionRequest(final PermissionRequest request) {
